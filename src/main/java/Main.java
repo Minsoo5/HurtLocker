@@ -1,5 +1,6 @@
 import org.apache.commons.io.IOUtils;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
 
@@ -13,5 +14,12 @@ public class Main {
         String output = (new Main()).readRawDataToString();
         System.out.println(output);
 
+        String cutWords = Arrays.toString(output.split(";"));
+
+        System.out.println("\n --------------- \n");
+
+        System.out.println(cutWords);
     }
+
+
 }
