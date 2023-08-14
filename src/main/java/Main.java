@@ -14,7 +14,10 @@ public class Main {
         String output = (new Main()).readRawDataToString();
         System.out.println(output);
 
-        String cutWords = Arrays.toString(output.split(";"));
+        //Potential regex "[^a-zA-Z_0-9/.]" split the string where it's NOT those things
+
+
+        String cutWords = Arrays.toString(output.split("[^a-zA-Z_0-9/.]"));
 
         System.out.println("\n --------------- \n");
 
