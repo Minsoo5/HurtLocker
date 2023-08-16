@@ -10,7 +10,7 @@ public class GroceryItemsTest {
         String name = "Dawn";
         double price = 12.99;
         String type = "Cleaning Supply";
-        Date expiration = new Date("1/10/3030");
+        String expiration = "1/10/3030";
 
         //When
         GroceryItems dawnDishSoap = new GroceryItems(name, price, type, expiration);

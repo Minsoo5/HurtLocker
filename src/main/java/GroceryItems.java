@@ -4,9 +4,9 @@ public class GroceryItems {
     private String name;
     private double price;
     private String type;
-    private Date expiration;
+    private String expiration;
 
-    public GroceryItems(String name, double price, String type,Date expiration) {
+    public GroceryItems(String name, double price, String type,String expiration) {
         this.name = name;
         this.price = price;
         this.type = type;
@@ -37,11 +37,11 @@ public class GroceryItems {
         this.type = type;
     }
 
-    public Date getExpiration() {
+    public String getExpiration() {
         return expiration;
     }
 
-    public void setExpiration(Date expiration) {
+    public void setExpiration(String expiration) {
         this.expiration = expiration;
     }
 }

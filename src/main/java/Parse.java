@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Parse {
@@ -5,6 +6,11 @@ public class Parse {
 
 
     public static String rehydrateText(String textToHydrate) {
+
+        return null;
+    }
+
+    public static ArrayList<GroceryItems> createGroceryItemList(String[] input){
 
         return null;
     }
@@ -19,14 +25,6 @@ public class Parse {
         String[] eachItem = input.split("##");
         return eachItem;
     }
-
-
-
-
-
-
-
-
 
 
     //        CapitalizeFirstLetter capitalizeFL = (w) -> {sb.append(Character.toUpperCase(w.charAt(0)))}
