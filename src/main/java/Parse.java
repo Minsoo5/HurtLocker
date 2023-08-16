@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Parse {
     private String textToParse;
 
@@ -8,10 +10,15 @@ public class Parse {
     }
 
     public static String separateIntoPairs(String textToSeparate) {
-
-        return null;
+        String pairs = Arrays.toString(textToSeparate.split("[^a-zA-Z_0-9/.:]"));
+        return pairs;
     }
 
+    public static String[] cutIntoArray(String input) {
+
+        String[] eachItem = input.split("##");
+        return eachItem;
+    }
 
 
 
