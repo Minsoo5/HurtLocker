@@ -67,12 +67,20 @@ public class ParseTest {
     @Test
     public void grabValueTest() {
         //Given
-        String input = "name:Milk";
+        String input1 = " name:Milk";
+        String input2 = " price:3.23";
+        String input3 = " priCe:";
 
         //When
-        Parse.grabValue(input);
+        String expected1 = "Milk";
+        String expected2 = "3.23";
+        String expected3 = null;
+
 
         //Then
+        Assert.assertEquals(expected1, Parse.grabValue(input1));
+        Assert.assertEquals(expected2, Parse.grabValue(input2));
+        Assert.assertEquals(expected3, Parse.grabValue(input3));
 
     }
 

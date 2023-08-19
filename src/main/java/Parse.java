@@ -26,8 +26,8 @@ public class Parse {
     }
 
     public static String grabValue(String keyValuePair) {
-
-        return null;
+        String[] keyValue =  keyValuePair.split(":");
+        return keyValue.length > 1 ? keyValue[1] : null;
     }
 
     public static ArrayList<GroceryItems> createGroceryItemList(String[] input){
