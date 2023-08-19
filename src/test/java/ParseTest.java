@@ -88,13 +88,21 @@ public class ParseTest {
     @Test
     public void createGroceryListTest() throws IOException {
         //Given
-//        ClassLoader classLoader = getClass().getClassLoader();
-//        String result = IOUtils.toString(classLoader.getResourceAsStream("RawData.txt"));
-//
-//        //When
-//        GroceryList groceryList = Parse.createGroceryList(result);
-//
-//        //Then
+        String input = "naMe:MiLK;priCe:;type:Food;expiration:1/11/2016##" +
+                       "naMe:Co0kieS;pRice:2.25;type:Food;expiration:1/25/2016##" +
+                       "naMe:MilK;priCe:;type:Food;expiration:4/25/2016##" +
+                       "naMe:apPles;prIce:0.25;type:Food;expiration:1/23/2016##";
+
+        //When
+        ArrayList<GroceryItem> groceryList = new ArrayList<>(Parse.createGroceryList(input));
+
+        //Then
+        Assert.assertEquals(4, groceryList.size());
+        Assert.assertEquals("Milk", groceryList.get(0).getName());
+        Assert.assertEquals(null, groceryList.get(0).getPrice());
+        Assert.assertEquals(null, groceryList.get(2).getPrice());
+        Assert.assertEquals("1/23/2016", groceryList.get(3).getExpiration());
+
 
 
     }

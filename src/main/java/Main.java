@@ -52,7 +52,7 @@ public class Main {
                 "NAMe:BrEAD;price:1.23;type:Food;expiration:1/25/2016##" +
                 "naMe:;price:3.23;type:Food^expiration:1/04/2016##");
 
-        groceryList.stream().forEach(item -> System.out.println(item.getName() + " " + item.getPrice() + " " + item.getType() + " " + item.getExpiration() + "\t"));
+        groceryList.stream().forEach(item -> System.out.println(item.getName()));
 
     }
 

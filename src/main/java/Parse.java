@@ -13,8 +13,12 @@ public class Parse {
 
 
     public static String separateIntoPairs(String textToSeparate) {
+        StringBuilder sb = new StringBuilder();
         String pairs = Arrays.toString(textToSeparate.split("[^a-zA-Z_0-9/.:]"));
-        return pairs;
+        for (int i = 1; i < pairs.length() -1; i++) {
+            sb.append(pairs.charAt(i));
+        }
+        return sb.toString();
         //returns one big string that is ONE element
     }
 
@@ -40,7 +44,7 @@ public class Parse {
             if (i % 5 == 0) {
                 GroceryItemBuilder builder = new GroceryItemBuilder();
                 builder.name(Parse.fixCapital(grabValue(keyValueArray[i])));
-                builder.price(keyValueArray[i+1] == null ? null : Double.parseDouble(grabValue(keyValueArray[i + 1])));
+                builder.price(Parse.grabValue(keyValueArray[i+1]) == null ? null : Double.parseDouble(grabValue(keyValueArray[i + 1])));
                 builder.type(Parse.fixCapital(grabValue(keyValueArray[i + 2])));
                 builder.expiration(grabValue(keyValueArray[i + 3]));
                 groceryList.add(builder.build());

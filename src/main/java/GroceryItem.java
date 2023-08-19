@@ -19,8 +19,12 @@ public class GroceryItem {
         this.name = name;
     }
 
-    public double getPrice() {
-        return price;
+    public Double getPrice() {
+        try {
+            return price;
+        } catch (NullPointerException n) {
+            return null;
+        }
     }
 
     public void setPrice(Double price) {
