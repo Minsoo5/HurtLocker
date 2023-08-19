@@ -17,7 +17,6 @@ public class Main {
         //Potential regex "[^a-zA-Z_0-9/.:]" split the string where it's NOT those things
         //Regex for separating by key value pairs ""??
 
-
         String cutWords = Arrays.toString(output.split("[^a-zA-Z_0-9/.:]"));    //regex
 
 
