@@ -24,7 +24,7 @@ public class ParseTest {
     public void createGroceryItemListTest() {
         //Given
         String[] input = {"naMe:Milk", "price:3.23", "type:Food", "expiration:1/25/2016"," ", "naME:BreaD", "price:1.23", "type:Food", "expiration:1/02/2016", " "};
-        List<GroceryItems> groceryList = new ArrayList<>();
+        List<GroceryItem> groceryList = new ArrayList<>();
 
         //When
         groceryList = Parse.createGroceryItemList(input);

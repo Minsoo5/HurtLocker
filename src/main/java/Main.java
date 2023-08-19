@@ -18,31 +18,11 @@ public class Main {
         //Regex for separating by key value pairs ""??
 
         String cutWords = Arrays.toString(output.split("[^a-zA-Z_0-9/.:]"));    //regex
-
-
         String pairs = Parse.separateIntoPairs(output);                               //Separate into key value pairs
 
         System.out.println("\n --------------- \n");
-
-        //Capture the value section that always appear after :
-        //grab the 'substring' after the : and set it to a field
-
         System.out.println(pairs);
 
-
-
-
-
-
-
-//        System.out.println("\n --------------- \n");
-//
-//        String[] eachItem = cutWords.split("##");
-//
-//        for (String s : eachItem) {
-//
-//            System.out.println(s);
-//        }
     }
 
 

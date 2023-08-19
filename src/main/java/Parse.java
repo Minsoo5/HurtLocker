@@ -30,7 +30,7 @@ public class Parse {
         return keyValue.length > 1 ? keyValue[1] : null;
     }
 
-    public static ArrayList<GroceryItems> createGroceryItemList(String[] input){
+    public static ArrayList<GroceryItem> createGroceryItemList(String[] input){
 
         return null;
     }
