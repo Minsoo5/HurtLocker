@@ -1,14 +1,14 @@
 public class GroceryItemBuilder {
     private String name;
-    private double price;
+    private Double price;
     private String type;
     private String expiration;
 
     public void name(String name) {
-        this.name = name;
+       this.name = name;
     }
     public void price(Double price) {
-        this.price = price;
+       this.price = price;
     }
     public void type(String type) {
         this.type = type;

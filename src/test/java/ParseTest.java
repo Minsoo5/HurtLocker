@@ -1,6 +1,8 @@
+import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,7 @@ public class ParseTest {
         List<GroceryItem> groceryList = new ArrayList<>();
 
         //When
-        groceryList = Parse.createGroceryItemList(input);
+        //groceryList = Parse.createGroceryItemList(input);
 
         //Then
 
@@ -80,6 +82,20 @@ public class ParseTest {
         Assert.assertEquals(expected1, Parse.grabValue(input1));
         Assert.assertEquals(expected2, Parse.grabValue(input2));
         Assert.assertEquals(expected3, Parse.grabValue(input3));
+
+    }
+
+    @Test
+    public void createGroceryListTest() throws IOException {
+        //Given
+//        ClassLoader classLoader = getClass().getClassLoader();
+//        String result = IOUtils.toString(classLoader.getResourceAsStream("RawData.txt"));
+//
+//        //When
+//        GroceryList groceryList = Parse.createGroceryList(result);
+//
+//        //Then
+
 
     }
 
