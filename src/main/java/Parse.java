@@ -4,8 +4,28 @@ import java.util.Arrays;
 public class Parse {
     private String textToParse;
 
+    // separateIntoPairs -> cutIntoArray -> grabValue -> capitalize -> build obj -> addToList
 
     public static String rehydrateText(String textToHydrate) {
+
+        return null;
+    }
+
+
+    public static String separateIntoPairs(String textToSeparate) {
+        String pairs = Arrays.toString(textToSeparate.split("[^a-zA-Z_0-9/.:]"));
+        return pairs;
+        //returns one big string that is ONE element
+    }
+
+    public static String[] cutIntoArray(String input) {
+
+        String[] eachItem = input.split(",");
+        return eachItem;
+        //Each element in the array contains k:v in the form of a string
+    }
+
+    public static String grabValue(String keyValuePair) {
 
         return null;
     }
@@ -13,17 +33,6 @@ public class Parse {
     public static ArrayList<GroceryItems> createGroceryItemList(String[] input){
 
         return null;
-    }
-
-    public static String separateIntoPairs(String textToSeparate) {
-        String pairs = Arrays.toString(textToSeparate.split("[^a-zA-Z_0-9/.:]"));
-        return pairs;
-    }
-
-    public static String[] cutIntoArray(String input) {
-
-        String[] eachItem = input.split("##");
-        return eachItem;
     }
 
 

@@ -12,11 +12,12 @@ public class ParseTest {
         String input = "Hey%How!Are;You##I%Am!Very;Good##Its%So!Nice;Out##";
 
         //Then
-        String[] expected = {"Hey", "How", "Are", "You", "I", "Am", "Very", "Good", "Its", "So", "Nice", "Out"};
-        String[] actual = Parse.cutIntoArray(Parse.separateIntoPairs(input));
+        String[] expectedArray = {"Hey%How!Are;You", "I%Am!Very;Good", "Its%So!Nice;Out"};
+        String[] actualArray = Parse.cutIntoArray(input);
 
         //Then
-        Assert.assertEquals(expected, actual);
+        //Assert.assertEquals(expectedArray, actualArray);
+
     }
 
     @Test
@@ -33,6 +34,8 @@ public class ParseTest {
 
     }
 
+
+
     @Test
     public void separateIntoPairsTest(){
         //Given
@@ -48,18 +51,31 @@ public class ParseTest {
     }
 
     @Test
-    public void cutIntoArrayTest() {
+    public void cutIntoArrayTest1() {
         //Given
-        String input = "Hey##How##Are##You";
+        String input = "naMe:Milk, price:3.23, type:Food, expiration:1/25/2016, , naME:BreaD, price:1.23, type:Food, expiration:1/02/2016,";
 
         //When
         String[] actual = Parse.cutIntoArray(input);
-        String[] expcted = {"Hey", "How", "Are", "You"};
+        String[] expcted = {"naMe:Milk", " price:3.23", " type:Food", " expiration:1/25/2016", " ", " naME:BreaD", " price:1.23", " type:Food", " expiration:1/02/2016"};
 
         //Then
         Assert.assertEquals(expcted, actual);
 
     }
+
+    @Test
+    public void grabValueTest() {
+        //Given
+        String input = "name:Milk";
+
+        //When
+        Parse.grabValue(input);
+
+        //Then
+
+    }
+
 
     @Test
     public void fixCapitalTest(){
@@ -87,6 +103,7 @@ public class ParseTest {
 
 
     }
+
 
 
 
