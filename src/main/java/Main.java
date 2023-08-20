@@ -23,16 +23,18 @@ public class Main {
         String cutWords = Arrays.toString(output.split("[^a-zA-Z_0-9/.:]"));    //regex
         String pairs = Parse.separateIntoPairs(output);                               //Separate into key value pairs
 
-        GroceryList<GroceryItem> groceryList = Parse.createGroceryList(
-                "naMe:MiLK;priCe:;type:Food;expiration:1/11/2016##" +
-                "naMe:Co0kieS;pRice:2.25;type:Food;expiration:1/25/2016##" +
-                "naMe:COOkieS;Price:2.25;type:Food;expiration:1/25/2016##" +
-                "NAME:MilK;price:3.23;type:Food;expiration:1/17/2016##" +
-                "naMe:MilK;priCe:;type:Food;expiration:4/25/2016##" +
-                "naMe:apPles;prIce:0.25;type:Food;expiration:1/23/2016##" +
-                "naMe:apPles;pRice:0.23;type:Food;expiration:5/02/2016##" +
-                "NAMe:BrEAD;price:1.23;type:Food;expiration:1/25/2016##" +
-                "naMe:;price:3.23;type:Food^expiration:1/04/2016##");
+//        GroceryList<GroceryItem> groceryList = Parse.createGroceryList(
+//                "naMe:MiLK;priCe:;type:Food;expiration:1/11/2016##" +
+//                "naMe:Co0kieS;pRice:2.25;type:Food;expiration:1/25/2016##" +
+//                "naMe:COOkieS;Price:2.25;type:Food;expiration:1/25/2016##" +
+//                "NAME:MilK;price:3.23;type:Food;expiration:1/17/2016##" +
+//                "naMe:MilK;priCe:;type:Food;expiration:4/25/2016##" +
+//                "naMe:apPles;prIce:0.25;type:Food;expiration:1/23/2016##" +
+//                "naMe:apPles;pRice:0.23;type:Food;expiration:5/02/2016##" +
+//                "NAMe:BrEAD;price:1.23;type:Food;expiration:1/25/2016##" +
+//                "naMe:;price:3.23;type:Food^expiration:1/04/2016##");
+
+        GroceryList<GroceryItem> groceryList = Parse.createGroceryList(output);
 
         groceryList.stream().forEach(item -> System.out.println(item.getName() + " " + item.getPrice() + " " + item.getType() + " " + item.getExpiration()));
         String milk = "Milk";
@@ -65,7 +67,7 @@ public class Main {
                                     "Price:%7.2f\t\tseen: %d times\t\n" +
                                     "-------------\t\t-------------\t\n" +
                                     "Price:%7.2f\t\tseen: %d times\t\n\n" +
-                                    "Errors\t\t\t\tseen : %d times\n\n",
+                                    "Errors\t\t\t\tseen: %d times\n\n",
                                     milk, GroceryList.stringCounter(groceryList,milk),
                                     milkPrice1, GroceryList.doubleCounter(groceryList, milkPrice1),
                                     milkPrice2, GroceryList.doubleCounter(groceryList, milkPrice2),
