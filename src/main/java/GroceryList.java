@@ -37,11 +37,13 @@ public class GroceryList <GroceryThing extends GroceryItem> extends ArrayList<Gr
     public static int stringCounter(GroceryList<GroceryItem> groceryList, Comparable value) {
         int counter = 0;
         if (value.getClass().getSimpleName().equals("String")) {
+            try {
             for (GroceryItem item : groceryList) {
                 if (item.getName().equals(value) || item.getType().equals(value) || item.getExpiration().equals(value)) {
                     counter++;
                 }
             }
+        } catch (NullPointerException n) {}
         }
         else if (value == null) {
             for (GroceryItem item : groceryList) {
@@ -55,8 +57,13 @@ public class GroceryList <GroceryThing extends GroceryItem> extends ArrayList<Gr
 
     public static int doubleCounter(GroceryList<GroceryItem> groceryList, Comparable value) {
         int counter = 0;
-       // if ()
-
+        if (value.getClass().getSimpleName().equals("Double")) {
+            for (GroceryItem item : groceryList) {
+                if (item.getPrice().toString().equals(value.toString())) {
+                    counter++;
+                }
+            }
+        }
         return counter;
     }
 
