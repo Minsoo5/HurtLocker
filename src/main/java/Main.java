@@ -42,7 +42,7 @@ public class Main {
 
 //        GroceryList groceryList = Parse.createGroceryList(output);
 
-        ArrayList<GroceryItem> groceryList = Parse.createGroceryList(
+        GroceryList<GroceryItem> groceryList = Parse.createGroceryList(
                 "naMe:MiLK;priCe:;type:Food;expiration:1/11/2016##" +
                 "naMe:Co0kieS;pRice:2.25;type:Food;expiration:1/25/2016##" +
                 "naMe:COOkieS;Price:2.25;type:Food;expiration:1/25/2016##" +
@@ -63,6 +63,7 @@ public class Main {
 
         writer.close();
 
+        System.out.println(groceryList.getGroceryListNumber());
     }
 
 

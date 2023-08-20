@@ -1,5 +1,8 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Parse {
     private String textToParse;
@@ -65,6 +68,8 @@ public class Parse {
             return sb.toString();
         }
     }
+
+    //Should really be in the groceryList class but cannot figure out why thats not working.
 
 
 }
