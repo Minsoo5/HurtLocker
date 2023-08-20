@@ -1,24 +1,24 @@
-import java.io.FileWriter;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class GroceryList <GroceryThing extends GroceryItem> extends ArrayList<GroceryThing> {
 
-    //Not really working, need to fix
-    //using array list for now with <GroceryItem>
     private static int groceryListNumber = 1;
-//    private GroceryList<GroceryThing> groceryList;
-//
-//
-//    public GroceryList() {}
-//
-//    public GroceryList(GroceryList groceryList) {
-//        this.groceryList = groceryList;
-//    }
 
-    public void writeFile() throws IOException {
+    public void writeFile() throws FileNotFoundException {
         //Create a new writer
-        FileWriter writer = new FileWriter("Grocery List Number " + groceryListNumber++ + ".txt");
+        String milk = "Milk";
+        String bread = "Bread";
+        String cookies = "Cookies";
+        String apples = "Apples";
+
+        PrintWriter writer = new PrintWriter("Grocery List Number " + groceryListNumber++ + ".txt");
+        writer.printf("name:%s\t\tseen: 2%d times\t" +
+                "=============\t\t=============\t" +
+                "Price:");
+
         //Take in the arrayList of groceryItems
         //                     8s           8s
         String example = "name:%s\t\tseen: 2%d times\t" +
@@ -34,6 +34,7 @@ public class GroceryList <GroceryThing extends GroceryItem> extends ArrayList<Gr
         return groceryListNumber;
     }
 
+    //String Counter a little bugged
     public static int stringCounter(GroceryList<GroceryItem> groceryList, Comparable value) {
         int counter = 0;
         for (GroceryItem item : groceryList) {
