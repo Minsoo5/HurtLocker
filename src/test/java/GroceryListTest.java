@@ -123,40 +123,93 @@ public class GroceryListTest {
 
 
     @Test
-    public void countingNullOcurrencesTest() {
+    public void countingNullOccurrencesTest() {
         //Given
-        String input = "naMe:MiLK;priCe:;type:Food;expiration:##" +
+        String input = "naMe:MiLK;priCe:2.25;type:Food;expiration:##" +
                 "naMe:Co0kieS;pRice:2.25;type:Food;expiration:##" +
-                "naMe:;priCe:;type:;expiration:##";
+                "naMe:;priCe:1.75;type:;expiration:##";
 
         GroceryList<GroceryItem> list = Parse.createGroceryList(input);
 
         //When
-        int expectedNull = 5;
-        int actualNull = GroceryList.stringCounter(list, "");
+        int expectedNull = 3;
+        int actualNull = GroceryList.stringCounter(list, null);
 
         //Then
-
+        Assert.assertEquals(expectedNull, actualNull);
 
     }
 
 
     @Test
-    public void occurrenceCounterDoubleTest() {
+    public void doubleCounterTest() {
         //Given
-        String input = "naMe:MiLK;priCe:;type:Food;expiration:1/11/2016##" +
+        String input = "naMe:MiLK;priCe:1.75;type:Food;expiration:1/11/2016##" +
                 "naMe:Co0kieS;pRice:2.25;type:Food;expiration:1/25/2016##" +
+                "naMe:MilK;priCe:2.25;type:Food;expiration:4/25/2016##";
+
+        GroceryList<GroceryItem> list = Parse.createGroceryList(input);
+
+        //When
+        int expectedPrice = 2;
+        int actualPrice = GroceryList.doubleCounter(list, 2.25);
+
+        int expectedPrice2 = 1;
+        int actualPrice2 = GroceryList.doubleCounter(list, 1.75);
+
+        //Then
+        Assert.assertEquals(expectedPrice, actualPrice);
+        Assert.assertEquals(expectedPrice2, actualPrice2);
+    }
+
+    @Test
+    public void doubleCounterNullTest() {
+        //Given
+        String input = "naMe:MiLK;priCe:1.75;type:Food;expiration:1/11/2016##" +
+                "naMe:Co0kieS;pRice:;type:Food;expiration:1/25/2016##" +
                 "naMe:MilK;priCe:;type:Food;expiration:4/25/2016##";
 
         GroceryList<GroceryItem> list = Parse.createGroceryList(input);
 
         //When
+        int expectedPrice = 0;
+        int actualPrice = GroceryList.doubleCounter(list, 2.25);
 
-        int expectedPrice = 1;
-        int actualPrice = GroceryList.stringCounter(list, 2.25);
+        int expectedPrice2 = 1;
+        int actualPrice2 = GroceryList.doubleCounter(list, 1.75);
+
+        int expectedNull = 2;
+        int actualNull = GroceryList.doubleCounter(list, null);
 
         //Then
         Assert.assertEquals(expectedPrice, actualPrice);
+        Assert.assertEquals(expectedPrice2, actualPrice2);
+        Assert.assertEquals(expectedNull, actualNull);
+
+    }
+
+    @Test
+    public void occurrenceCounterTest() {
+        //Given
+        String input = "naMe:MiLK;priCe:;type:Food;expiration:1/11/2016##" +
+                "naMe:;pRice:2.25;type:Food;expiration:1/25/2016##" +
+                "naMe:MilK;priCe:;type:;expiration:4/25/2016##" +
+                "naMe:apPles;prIce:0.25;type:Food;expiration:##";
+
+        //When
+        GroceryList<GroceryItem> list = Parse.createGroceryList(input);
+
+        //Then
+        int expectedMilk = 2;
+        int expectedType = 3;
+        int expectedDate = 1;
+        int expectedNull = 3;
+
+        Assert.assertEquals(expectedMilk, GroceryList.occurrenceCounter(list, "Milk"));
+        Assert.assertEquals(expectedType, GroceryList.occurrenceCounter(list, "Food"));
+        Assert.assertEquals(expectedDate, GroceryList.occurrenceCounter(list, "1/11/2016"));
+        Assert.assertEquals(expectedNull, GroceryList.occurrenceCounter(list, null));
+
 
     }
 

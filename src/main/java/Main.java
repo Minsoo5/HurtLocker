@@ -23,26 +23,6 @@ public class Main {
         String cutWords = Arrays.toString(output.split("[^a-zA-Z_0-9/.:]"));    //regex
         String pairs = Parse.separateIntoPairs(output);                               //Separate into key value pairs
 
-//        System.out.println("\n --------------- \n");
-//        System.out.println(pairs);
-//
-//        System.out.println(0 % 5);
-//        System.out.println(1 % 5);
-//        System.out.println(2 % 5);
-//        System.out.println(3 % 5);
-//        System.out.println(4 % 5);
-//        System.out.println(5 % 5);
-//        System.out.println(6 % 5);
-//        System.out.println(7 % 5);
-//        System.out.println(8 % 5);
-//        System.out.println(9 % 5);
-//        System.out.println(10 % 5);
-//        System.out.println(11 % 5);
-//        System.out.println(12 % 5);
-//        System.out.println(13 % 5);
-
-//        GroceryList groceryList = Parse.createGroceryList(output);
-
         GroceryList<GroceryItem> groceryList = Parse.createGroceryList(
                 "naMe:MiLK;priCe:;type:Food;expiration:1/11/2016##" +
                 "naMe:Co0kieS;pRice:2.25;type:Food;expiration:1/25/2016##" +
@@ -54,8 +34,6 @@ public class Main {
                 "NAMe:BrEAD;price:1.23;type:Food;expiration:1/25/2016##" +
                 "naMe:;price:3.23;type:Food^expiration:1/04/2016##");
 
-//        ArrayList<GroceryItem> groceryList = Parse.createGroceryList(output);
-
         groceryList.stream().forEach(item -> System.out.println(item.getName() + " " + item.getPrice() + " " + item.getType() + " " + item.getExpiration()));
 
         PrintWriter writer = new PrintWriter("Min's Output.txt");
@@ -65,14 +43,6 @@ public class Main {
         writer.close();
 
         System.out.println(groceryList.getGroceryListNumber());
-
-        String haha = "Ypyooy";
-        Double num = 5.55;
-        System.out.println(haha.getClass().getSimpleName());
-        System.out.println(haha.getClass().getSimpleName().equals("String"));
-
-        System.out.println(num.getClass().getSimpleName());
-        System.out.println(num.getClass().getSimpleName().equals("Double"));
 
         System.out.println("------------");
 

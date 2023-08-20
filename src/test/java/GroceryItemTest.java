@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Optional;
+
 public class GroceryItemTest {
 
     @Test
@@ -13,14 +15,19 @@ public class GroceryItemTest {
 
         //When
         GroceryItem dawnDishSoap = new GroceryItem(name, price, type, expiration);
+        GroceryItem dawnDishSoap2 = new GroceryItem(name, null, type, expiration);
+
 
         //Then
-
         Assert.assertEquals(name, dawnDishSoap.getName());
         Assert.assertEquals(price, dawnDishSoap.getPrice(), 0.01);
         Assert.assertEquals(type, dawnDishSoap.getType());
         Assert.assertEquals(expiration, dawnDishSoap.getExpiration());
 
+        Assert.assertEquals(name, dawnDishSoap2.getName());
+        Assert.assertEquals(null, dawnDishSoap2.getPrice());
+        Assert.assertEquals(type, dawnDishSoap2.getType());
+        Assert.assertEquals(expiration, dawnDishSoap2.getExpiration());
     }
 
     @Test
