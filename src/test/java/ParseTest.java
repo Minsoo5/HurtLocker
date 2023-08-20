@@ -96,7 +96,7 @@ public class ParseTest {
                        "naMe:apPles;prIce:0.25;type:Food;expiration:1/23/2016##";
 
         //When
-        ArrayList<GroceryItem> groceryList = new ArrayList<>(Parse.createGroceryList(input));
+        GroceryList<GroceryItem> groceryList = Parse.createGroceryList(input);
 
         //Then
         Assert.assertEquals(4, groceryList.size());

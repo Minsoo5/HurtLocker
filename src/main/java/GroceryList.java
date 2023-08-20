@@ -8,6 +8,14 @@ public class GroceryList <GroceryThing extends GroceryItem> extends ArrayList<Gr
     //Not really working, need to fix
     //using array list for now with <GroceryItem>
     private static int groceryListNumber = 1;
+    private GroceryList<GroceryThing> groceryList;
+
+
+    public GroceryList() {}
+    public GroceryList(GroceryList groceryList) {
+        this.groceryList = groceryList;
+
+    }
 
     public void writeFile() throws IOException {
         //Create a new writer
@@ -28,9 +36,12 @@ public class GroceryList <GroceryThing extends GroceryItem> extends ArrayList<Gr
     }
 
     //Takes in list of
-    public int occurrenceCounter() {
+    public int occurrenceCounter(Comparable value) {
+        int counter = 0;
+//        if (value.getClass().getSimpleName() == String)
+//        this.groceryList.stream().filter()
 
-        return 0;
+        return counter;
     }
 
     public void setGroceryListNumber(int number) {

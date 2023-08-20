@@ -16,7 +16,6 @@ public class GroceryItemBuilderTest{
         GroceryItem bread = builder.build();
 
         //Then
-
         Assert.assertEquals("Bread", bread.getName());
         Assert.assertEquals(5.99, bread.getPrice(), 0.01);
         Assert.assertEquals("Food", bread.getType());

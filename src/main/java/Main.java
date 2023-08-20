@@ -1,6 +1,7 @@
 import org.apache.commons.io.IOUtils;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -64,6 +65,16 @@ public class Main {
         writer.close();
 
         System.out.println(groceryList.getGroceryListNumber());
+
+        String haha = "Ypyooy";
+        Double num = 5.55;
+        System.out.println(haha.getClass().getSimpleName());
+        System.out.println(haha.getClass().getSimpleName().equals("String"));
+
+        System.out.println(num.getClass().getSimpleName());
+        System.out.println(num.getClass().getSimpleName().equals("Double"));
+
+
     }
 
 
