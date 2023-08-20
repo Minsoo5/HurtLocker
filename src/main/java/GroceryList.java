@@ -1,21 +1,20 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class GroceryList <GroceryThing extends GroceryItem> extends ArrayList<GroceryThing> {
 
     //Not really working, need to fix
     //using array list for now with <GroceryItem>
     private static int groceryListNumber = 1;
-    private GroceryList<GroceryThing> groceryList;
-
-
-    public GroceryList() {}
-    public GroceryList(GroceryList groceryList) {
-        this.groceryList = groceryList;
-
-    }
+//    private GroceryList<GroceryThing> groceryList;
+//
+//
+//    public GroceryList() {}
+//
+//    public GroceryList(GroceryList groceryList) {
+//        this.groceryList = groceryList;
+//    }
 
     public void writeFile() throws IOException {
         //Create a new writer
@@ -35,12 +34,41 @@ public class GroceryList <GroceryThing extends GroceryItem> extends ArrayList<Gr
         return groceryListNumber;
     }
 
-    //Takes in list of
-    public int occurrenceCounter(Comparable value) {
+    public static int stringCounter(GroceryList<GroceryItem> groceryList, Comparable value) {
         int counter = 0;
-//        if (value.getClass().getSimpleName() == String)
-//        this.groceryList.stream().filter()
+        if (value.getClass().getSimpleName().equals("String")) {
+            for (GroceryItem item : groceryList) {
+                if (item.getName().equals(value) || item.getType().equals(value) || item.getExpiration().equals(value)) {
+                    counter++;
+                }
+            }
+        }
+        else if (value == null) {
+            for (GroceryItem item : groceryList) {
+                if (item.getName().equals(value) || item.getType().equals(value) || item.getExpiration().equals(value)) {
+                    counter++;
+                }
+            }
+        }
+        return counter;
+    }
 
+    public static int doubleCounter(GroceryList<GroceryItem> groceryList, Comparable value) {
+        int counter = 0;
+       // if ()
+
+        return counter;
+    }
+
+    //Takes in list of
+    public static int occurrenceCounter(GroceryList<GroceryItem> groceryList, Comparable value) {
+        int counter = 0;
+        if (value.getClass().getSimpleName().equals("String")) {
+            return stringCounter(groceryList, value);
+        }
+        else if (value.getClass().getSimpleName().equals("Double")) {
+
+        }
         return counter;
     }
 

@@ -74,6 +74,10 @@ public class Main {
         System.out.println(num.getClass().getSimpleName());
         System.out.println(num.getClass().getSimpleName().equals("Double"));
 
+        System.out.println("------------");
+
+        String nullVal = null;
+        System.out.println(nullVal == null);
 
     }
 
