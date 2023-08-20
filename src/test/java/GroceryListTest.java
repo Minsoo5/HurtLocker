@@ -75,7 +75,7 @@ public class GroceryListTest {
         //Given
         String input = "naMe:MiLK;priCe:;type:Food;expiration:1/11/2016##" +
                 "naMe:Co0kieS;pRice:2.25;type:Food;expiration:1/11/2016##" +
-                "naMe:MilK;priCe:;type:;expiration:1/11/2016##";
+                "naMe:MilK;priCe:;type:Food;expiration:1/11/2016##";
 
         GroceryList<GroceryItem> list = Parse.createGroceryList(input);
 
@@ -86,13 +86,13 @@ public class GroceryListTest {
         int expectedExp = 3;
         int actualExp = GroceryList.stringCounter(list, "1/11/2016");
 
-        int expectedFood = 2;
-        int actualFood = 2;
+        int expectedType = 3;
+        int actualType = GroceryList.stringCounter(list, "Food");
 
         //Then
         Assert.assertEquals(expectedMilk, actualMilk);
         Assert.assertEquals(expectedExp, actualExp);
-        Assert.assertEquals(expectedFood, actualFood);
+        Assert.assertEquals(expectedType, actualType);
 
     }
 
