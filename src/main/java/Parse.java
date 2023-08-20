@@ -7,11 +7,6 @@ public class Parse {
     // separateIntoPairs -> cutIntoArray -> grabValue -> capitalize -> build obj -> addToList
 
 
-    public static void rehydrateText(String textToHydrate) {
-
-    }
-
-
     public static String separateIntoPairs(String textToSeparate) {
         StringBuilder sb = new StringBuilder();
         String pairs = Arrays.toString(textToSeparate.split("[^a-zA-Z_0-9/.:]"));

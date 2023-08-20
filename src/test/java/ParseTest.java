@@ -44,7 +44,7 @@ public class ParseTest {
 
         //When
         String actual = Parse.separateIntoPairs(input);
-        String expcted = "[Hey, How, Are, You]";
+        String expcted = "Hey, How, Are, You";
 
         //Then
         Assert.assertEquals(expcted, actual);

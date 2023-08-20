@@ -41,18 +41,20 @@ public class Main {
 
 //        GroceryList groceryList = Parse.createGroceryList(output);
 
-        ArrayList<GroceryItem> groceryList = Parse.createGroceryList(
-                "naMe:MiLK;priCe:;type:Food;expiration:1/11/2016##" +
-                "naMe:Co0kieS;pRice:2.25;type:Food;expiration:1/25/2016##" +
-                "naMe:COOkieS;Price:2.25;type:Food;expiration:1/25/2016##" +
-                "NAME:MilK;price:3.23;type:Food;expiration:1/17/2016##" +
-                "naMe:MilK;priCe:;type:Food;expiration:4/25/2016##" +
-                "naMe:apPles;prIce:0.25;type:Food;expiration:1/23/2016##" +
-                "naMe:apPles;pRice:0.23;type:Food;expiration:5/02/2016##" +
-                "NAMe:BrEAD;price:1.23;type:Food;expiration:1/25/2016##" +
-                "naMe:;price:3.23;type:Food^expiration:1/04/2016##");
+//        ArrayList<GroceryItem> groceryList = Parse.createGroceryList(
+//                "naMe:MiLK;priCe:;type:Food;expiration:1/11/2016##" +
+//                "naMe:Co0kieS;pRice:2.25;type:Food;expiration:1/25/2016##" +
+//                "naMe:COOkieS;Price:2.25;type:Food;expiration:1/25/2016##" +
+//                "NAME:MilK;price:3.23;type:Food;expiration:1/17/2016##" +
+//                "naMe:MilK;priCe:;type:Food;expiration:4/25/2016##" +
+//                "naMe:apPles;prIce:0.25;type:Food;expiration:1/23/2016##" +
+//                "naMe:apPles;pRice:0.23;type:Food;expiration:5/02/2016##" +
+//                "NAMe:BrEAD;price:1.23;type:Food;expiration:1/25/2016##" +
+//                "naMe:;price:3.23;type:Food^expiration:1/04/2016##");
 
-        groceryList.stream().forEach(item -> System.out.println(item.getName()));
+        ArrayList<GroceryItem> groceryList = Parse.createGroceryList(output);
+
+        groceryList.stream().forEach(item -> System.out.println(item.getName() + " " + item.getPrice() + " " + item.getType() + " " + item.getExpiration()));
 
     }
 
