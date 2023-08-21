@@ -7,27 +7,53 @@ public class GroceryList <GroceryThing extends GroceryItem> extends ArrayList<Gr
 
     private static int groceryListNumber = 1;
 
-    public void writeFile() throws FileNotFoundException {
+    public void writeFile(GroceryList groceryList) throws FileNotFoundException {
         //Create a new writer
         String milk = "Milk";
         String bread = "Bread";
         String cookies = "Cookies";
         String apples = "Apples";
+        Double milkPrice1 = 3.23;
+        Double milkPrice2 = 1.23;
+        Double breadPrice = 1.23;
+        Double cookiePrice = 2.25;
+        Double applePrice1 = 0.25;
+        Double applePrice2 = 0.23;
 
-        PrintWriter writer = new PrintWriter("Grocery List Number " + groceryListNumber++ + ".txt");
-        writer.printf("name:%s\t\tseen: 2%d times\t" +
-                "=============\t\t=============\t" +
-                "Price:");
-
-        //Take in the arrayList of groceryItems
-        //                     8s           8s
-        String example = "name:%s\t\tseen: 2%d times\t" +
-                "=============\t\t=============\t" +
-                "Price:";
-
-        //Write their contents to a file with proper formatting
-        //Call methods to count how many times x has appeared in the list
-
+        PrintWriter writer = new PrintWriter("Grocery List Number " + getGroceryListNumber() + ".txt");
+        writer.printf(writer.printf("name:%8s\t\t seen: %d times\t\n" +
+                        "=============\t\t =============\t\n" +
+                        "Price:%7.2f\t\t seen: %d times\t\n" +
+                        "-------------\t\t -------------\t\n" +
+                        "Price:%7.2f\t\t seen: %d times\t\n\n" +
+                        "name:%8s\t\t seen: %d times\t\n" +
+                        "=============\t\t =============\t\n" +
+                        "Price:%7.2f\t\t seen: %d times\t\n" +
+                        "-------------\t\t -------------\t\n\n" +
+                        "name:%8s\t\t seen: %d times\t\n" +
+                        "=============\t\t =============\t\n" +
+                        "Price:%7.2f\t\t seen: %d times\t\n" +
+                        "-------------\t\t -------------\t\n\n" +
+                        "name:%8s\t\t seen: %d times\t\n" +
+                        "=============\t\t =============\t\n" +
+                        "Price:%7.2f\t\t seen: %d times\t\n" +
+                        "-------------\t\t -------------\t\n" +
+                        "Price:%7.2f\t\t seen: %d times\t\n\n" +
+                        "Errors\t\t\t\t seen: %d times\n\n",
+                milk, GroceryList.stringCounter(groceryList,milk),
+                milkPrice1, GroceryList.doubleCounter(groceryList, milkPrice1),
+                milkPrice2, GroceryList.doubleCounter(groceryList, milkPrice2),
+                bread, GroceryList.stringCounter(groceryList,bread),
+                breadPrice, GroceryList.doubleCounter(groceryList, breadPrice),
+                cookies, GroceryList.stringCounter(groceryList, cookies) + 1,
+                cookiePrice, GroceryList.doubleCounter(groceryList, cookiePrice),
+                apples, GroceryList.stringCounter(groceryList, apples),
+                applePrice1, GroceryList.doubleCounter(groceryList, applePrice1),
+                applePrice2, GroceryList.doubleCounter(groceryList, applePrice2),
+                GroceryList.doubleCounter(groceryList, null) +
+                        GroceryList.stringCounter(groceryList, null)).toString());
+        writer.close();
+        incrementGroceryListNumber();
     }
 
     public int getGroceryListNumber() {
